@@ -32,3 +32,9 @@ The following is expected output:
 
     TESTING HTTPS REQUEST...
     HTTPS Request (https://google.com): Succeded (200, OK)
+
+# Notes
+
+A variation of this PowerShell code can be found here in the form of a single-file script:
+
+https://gist.github.com/kriipke/dbe6096cbbeaeaf356e99478ef0e36af
