@@ -1,4 +1,4 @@
-# HostConn-Tests PowerSHell Module
+# HostConn-Tests PowerShell Module
 
 This PowerShell module is a simple but handy network troubleshooting and connectivity test tool. It was designed for technical support teams to quick check whether the local machine can access another host running a web service, among other things.
 
