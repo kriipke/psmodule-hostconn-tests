@@ -62,6 +62,7 @@ function Test-HTTP {
                 * { $PortNumber = $null }
             }
             Write-Host "Failed to query $($Protocol.toLower())://$FQDN on port $PortNumber, make sure server is up and port is unblocked." -ForegroundColor red
+            Write-Host $_
         }
     }
 }
