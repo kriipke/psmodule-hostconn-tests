@@ -26,8 +26,8 @@ function HostConn-Tests {
     [Alias("Host")]
     [String] $FQDN
   )
-
-  if ($FQDN -match '^(?:\d{1,3}\.){3}[\d]{1,3}$') {
+  $RE_IPAddress = '^(?:\d{1,3}\.){3}\d{1,3}$'
+  if ($FQDN -match $RE_IPAddress) {
     $IPAddresses = $FQDN
   } else {
     Write-Host "`nTESTING DNS RESOLUTION..." -ForegroundColor "blue" 
