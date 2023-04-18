@@ -27,8 +27,12 @@ function HostConn-Tests {
     [String] $FQDN
   )
 
-  Write-Host "`nTESTING DNS RESOLUTION..." -ForegroundColor "blue" 
-  Test-DNS $FQDN | Tee-Object -Variable IPAddresses
+  if ($FQDN -match '^(?:\d{1,3}\.){3}[\d]{1,3}$') {
+    $IPAddresses = $FQDN
+  } else {
+    Write-Host "`nTESTING DNS RESOLUTION..." -ForegroundColor "blue" 
+    Test-DNS $FQDN | Tee-Object -Variable IPAddresses
+  }
 
   Write-Host "`nTESTING IP (ping) CONNECTIVITY..." -ForegroundColor "blue" 
   if ($IPAddresses -ne $null) {
