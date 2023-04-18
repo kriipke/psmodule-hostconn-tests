@@ -31,10 +31,18 @@ function HostConn-Tests {
   Test-DNS $FQDN | Tee-Object -Variable IPAddresses
 
   Write-Host "`nTESTING IP (ping) CONNECTIVITY..." -ForegroundColor "blue" 
-  Test-Ping $IPAddresses
+  if ($IPAddresses -ne $null) {
+    Test-Ping $IPAddresses
+  } else {
+    Write-Host "`CANNOT TEST IP (ping) CONNECTIVITY BECAUSE IP ADDRESS COULD NOT BE DETERMINED..." -ForegroundColor "orange" 
+  }
 
+  if ($IPAddresses -ne $null) {
   Write-Host "`nTESTING HTTP REQUEST..." -ForegroundColor "blue" 
   Test-HTTP -Protocols "HTTP" -FQDN $FQDN
+  } else {
+
+  }
 
   Write-Host "`nTESTING HTTPS REQUEST..." -ForegroundColor "blue" 
   Test-HTTP -Protocols "HTTPS" -FQDN $FQDN

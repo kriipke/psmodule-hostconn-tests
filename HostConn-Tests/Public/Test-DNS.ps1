@@ -39,9 +39,12 @@ function Test-DNS {
 
     try {
         $ResolvedIPs = $(Resolve-DnsName -Name $FQDN -Type A | Select-Object -Property IPAddress)
-        Write-Host "Succeded" -ForegroundColor green
-        Write-Output $ResolvedIPs.IPAddress
-        # saves these IP Addresses to be used later by Test-Ping
+        if ($ResolvedIPs -ne $null) {
+            Write-Host "Succeded" -ForegroundColor green
+            Write-Output $ResolvedIPs.IPAddress
+        } else {
+            Throw "`$ResolvedIPs was empty."
+        }
     }
     catch { 
         Write-Host "Failed" -ForegroundColor red
