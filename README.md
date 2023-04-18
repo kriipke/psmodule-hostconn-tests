@@ -1,12 +1,12 @@
-# HostConn-Tests PowerShell Module
+# Test-HostConnectivity PowerShell Module
 
 This PowerShell module is a simple but handy network troubleshooting and connectivity test tool. It was designed for technical support teams to quick check whether the local machine can access another host running a web service, among other things.
 
 
 # Usage
 
-    Import-Module ./HostConn-Tests.psm1
-    HostConn-Test "google.com"
+    Import-Module ./Test-HostConnectivity.psm1
+    Test-HostConnectivity "google.com"
 
 The following is expected output:
 
@@ -32,9 +32,3 @@ The following is expected output:
 
     TESTING HTTPS REQUEST...
     HTTPS Request (https://google.com): Succeded (200, OK)
-
-# Notes
-
-A variation of this PowerShell code can be found here in the form of a single-file script:
-
-https://gist.github.com/kriipke/dbe6096cbbeaeaf356e99478ef0e36af
